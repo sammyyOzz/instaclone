@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-9">
-            <div class="pt-5"><h1>InstaClone</h1></div>
+            <div class="pt-5"><h1>{{ $user->username }}</h1></div>
 
             <div class="d-flex">
                 <div class="pr-5"><strong>1</strong> posts</div>
