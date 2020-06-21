@@ -16,11 +16,9 @@
                 <div class="pr-5"><strong>16</strong> following</div>
             </div>
 
-            <div class="pt-4 font-weight-bold">InstaClone.com</div>
-            <div>
-                Help people discover your account by using the name you're known by: either your full name, nickname, or business name. You can only change your name twice within 14 days.
-            </div>
-            <div><a href="#">Instaclone.com</a></div>
+            <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
+            <div>{{ $user->profile->description }}</div>
+            <div><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
 
