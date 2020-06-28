@@ -15,7 +15,7 @@ class PostsController extends Controller
 	{
 		$data = request()->validate([
 			'caption' => 'required',
-			'image' => 'required',
+			'upload_file' => ['required', 'file' => 'mimes:jpeg,bmp,png,avi,mpeg,quicktime,mp4'],
 		]);
 
 		dd(request()->all());

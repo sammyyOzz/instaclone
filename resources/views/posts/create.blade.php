@@ -20,14 +20,12 @@
                     </div>
 
                     <div class="row">
-                        <label for="image" class="col-md-4 col-form-label">Post Image</label>
+                        <label for="upload_file" class="col-md-4 col-form-label">Post Image/Video:</label>
 
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file" id="upload_file" name="upload_file">
 
-                        @error('image')
-                                <span class="invalid-feedback" role="alert">
+                        @error('upload_file')
                                     <strong>{{ $message }}</strong>
-                                </span>
                             @enderror
                     </div>
 
