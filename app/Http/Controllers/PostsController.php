@@ -41,4 +41,10 @@ class PostsController extends Controller
 
 		return redirect('/profile/' . auth()->user()->id);
 	}
+
+	//Route model binding was done here
+	public function show(\App\Post $post)
+	{
+		return view('posts.show', compact('post'));
+	}
 }
