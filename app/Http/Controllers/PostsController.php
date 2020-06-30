@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function create()
 	{
 		return view('posts.create');
@@ -18,6 +24,21 @@ class PostsController extends Controller
 			'upload_file' => ['required', 'file' => 'mimes:jpeg,bmp,png,avi,mpeg,quicktime,mp4'],
 		]);
 
-		dd(request()->all());
+		//I believe the store and create functions below ship with laravel,
+		//store is responsible for moving the file to the uploads folder which is located in public,
+
+		$uploadPath = request('upload_file')->store('uploads', 'public');
+
+		//I think this should be modified to integrate videos as well
+		$upload = Image::make(public_path("storage/{$uploadPath}"))->fit(1200, 1200);
+		$upload->save();
+
+		auth()->user()->posts()->create([
+
+			'caption' => $data['caption'],
+			'upload_file' => $uploadPath,
+		]);
+
+		return redirect('/profile/' . auth()->user()->id);
 	}
 }

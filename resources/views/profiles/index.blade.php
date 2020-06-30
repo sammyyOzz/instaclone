@@ -14,7 +14,7 @@
             </div>
 
             <div class="d-flex">
-                <div class="pr-5"><strong>1</strong> posts</div>
+                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pr-5"><strong>88</strong> followers</div>
                 <div class="pr-5"><strong>16</strong> following</div>
             </div>
@@ -25,16 +25,12 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-4">
-            <img src="https://instagram.fbni1-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/104203356_822619448271538_2230793226924528710_n.jpg?_nc_ht=instagram.fbni1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Nr1kWYbwtm0AX8u3C2K&oh=22424437107cfca3af74e4797c273907&oe=5F198FC7" class="w-100">
-        </div>
-        <div class="col-4">
-            <img src="https://instagram.fbni1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/c0.180.1440.1440a/s640x640/94893589_921725051629366_8110452400042020182_n.jpg?_nc_ht=instagram.fbni1-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=XbKomAycnmMAX8QA8zj&oh=37a1d0fee2d78f68ed97e198c8a59845&oe=5F189AD5" class="w-100">
-        </div>
-        <div class="col-4">
-            <img src="https://instagram.fbni1-2.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/89951561_2418726955100693_3545373609463000962_n.jpg?_nc_ht=instagram.fbni1-2.fna.fbcdn.net&_nc_cat=105&_nc_ohc=fTJLQo4eBDkAX8wxvSF&oh=88f09975548fed777a8e10a1924f431a&oe=5F179B34" class="w-100">
-        </div>
+    <div class="row pt-5">
+        @foreach($user->posts as $post)
+            <div class="col-4 pb-4">
+                <img src ="/storage/{{ $post->upload_file }}" class="w-100">  
+            </div>
+        @endforeach
     </div>
 
     
