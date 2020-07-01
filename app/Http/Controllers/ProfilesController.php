@@ -10,8 +10,15 @@ class ProfilesController extends Controller
 	//user was fetched manually, it can be done better with route model binding
     public function index($user)
     {
+    	//both lines for passing the user to the view
     	$user = User::findOrFail($user);
 
         return view('profiles.index', compact('user'));
+    }
+
+    //the '\App\' below can be ommitted since we are importing the user class above with the use statement
+    public function edit(\App\User $user)
+    {
+    	return view('profiles.edit', compact('user'));
     }
 }

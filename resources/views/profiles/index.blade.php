@@ -12,6 +12,7 @@
                 <h1>{{ $user->username }}</h1>
                 <a href="/p/create">Add New Post</a>
             </div>
+            <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
 
             <div class="d-flex">
                 <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
@@ -19,25 +20,11 @@
                 <div class="pr-5"><strong>16</strong> following</div>
             </div>
 
-            {{-- <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
-            <div>{{ $user->profile->description }}</div>
-            <div><a href="#">{{ $user->profile->url }}</a></div> --}}
-
-            <div class="pt-4 font-weight-bold">
-                @if($user->profile)
-                    {{ $user->profile->title }}
-                @endif
-            </div>
-            <div>
-                @if($user->profile)
-                    {{ $user->profile->description }}
-                @endif
-            </div>
-            <div>
-                @if($user->profile)
-                    {{ $user->profile->url }}
-                @endif
-            </div>
+            @if($user->profile)
+                <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
+                <div>{{ $user->profile->description }}</div>
+                <div><a href="#">{{ $user->profile->url }}</a></div>
+            @endif
         </div>
     </div>
 
