@@ -19,9 +19,25 @@
                 <div class="pr-5"><strong>16</strong> following</div>
             </div>
 
-            <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
+            {{-- <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>
-            <div><a href="#">{{ $user->profile->url }}</a></div>
+            <div><a href="#">{{ $user->profile->url }}</a></div> --}}
+
+            <div class="pt-4 font-weight-bold">
+                @if($user->profile)
+                    {{ $user->profile->title }}
+                @endif
+            </div>
+            <div>
+                @if($user->profile)
+                    {{ $user->profile->description }}
+                @endif
+            </div>
+            <div>
+                @if($user->profile)
+                    {{ $user->profile->url }}
+                @endif
+            </div>
         </div>
     </div>
 
