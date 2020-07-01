@@ -19,11 +19,15 @@ class ProfilesController extends Controller
     //the '\App\' below can be ommitted since we are importing the user class above with the use statement
     public function edit(\App\User $user)
     {
+    	$this->authorize('update', $user->profile); //this line was brought in after adding the profile policy to add protection to who can update a profile
+
     	return view('profiles.edit', compact('user'));
     }
 
     public function update(User $user)
     {
+		$this->authorize('update', $user->profile); //this line was brought in after adding the profile policy to add protection to who can update a profile
+
     	$data = request()->validate([
     		'title' => 'required',
     		'description' => 'required',
