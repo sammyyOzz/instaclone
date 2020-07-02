@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://instagram.fbni1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/101445820_587263755241837_6168186823604144619_n.jpg?_nc_ht=instagram.fbni1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=oobRkFrp2fkAX9APPGX&oh=5642d43edcc753e14474ce17f305ba53&oe=5F189E7D" class ="rounded-circle w-100">
+            <img src="/storage/{{ $user->profile->image }}" class ="rounded-circle w-100">
         </div>
 
         <div class="col-9">
@@ -24,11 +24,11 @@
                 <div class="pr-5"><strong>16</strong> following</div>
             </div>
 
-            @if($user->profile)
+            {{-- @if($user->profile) --}}
                 <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
                 <div>{{ $user->profile->description }}</div>
                 <div><a href="#">{{ $user->profile->url }}</a></div>
-            @endif
+           {{--  @endif --}}
         </div>
     </div>
 

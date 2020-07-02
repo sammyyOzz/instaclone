@@ -37,6 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //this boot method is called whenever we are booting up this model, 
+    //the block of code with it is responsible for fixing the error of "trying to get property of non-object 'title'"
+    protected static function boot()
+    {
+        parent::boot();
+
+        //created is an 'event' and gets fired up when a new user is created
+        static::created(function ($user){
+            $user->profile()->create([
+                'title' => $user->username,  //making the default title to be the user's username
+            ]);
+        });
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
