@@ -42,13 +42,15 @@ class ProfilesController extends Controller
     		$imagePath = request('image')->store('profile', 'public');
 			$image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
 			$image->save();
+
+			$imageArray = ['image' => $imagePath];  //fix for "undefined variable: imagePath" error  (3 hours 17 mins in the video)
     	}
 
     	//array_merge appends multiple arrays together... placing the image array second as shown below replaces its value in
     	//$data which is the first array 
     	auth()->user()->profile->update(array_merge(
     		$data,
-    		['image' => $imagePath]
+    		$imageArray ?? []  //fix for "undefined variable: imagePath" error  (3 hours 17 mins in the video)
     	));
 
 
