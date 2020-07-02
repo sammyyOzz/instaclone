@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     //this boot method is called whenever we are booting up this model, 
-    //the block of code with it is responsible for fixing the error of "trying to get property of non-object 'title'"
+    //the block of code with it is responsible for fixing the error of "trying to get property of non-object 'title'" when a new user is created
     protected static function boot()
     {
         parent::boot();
