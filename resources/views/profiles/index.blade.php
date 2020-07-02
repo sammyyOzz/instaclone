@@ -13,8 +13,8 @@
             <div class="d-flex pt-5 justify-content-between  align-items-baseline">
                 <div class = "d-flex align-items-center pb-3">
                     <div class="h4">{{ $user->username }}</div>
-
-                    <button class="btn btn-primary ml-4">Follow</button>
+                    
+                    <follow-button></follow-button>  {{-- this links to the FollowButton.vue file, the 'follow-button' name is in the app.js file --}}
                 </div>
 
                 @can('update', $user->profile)
