@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class FollowsController extends Controller
 {
-    public function store()  //store verb was chosen because we are basically storing a following
+    public function store(User $user)  //store verb was chosen because we are basically storing a following
     {
-
+    	return $user->username;
     }
 }

@@ -6,13 +6,16 @@
 
 <script>
     export default {
+
+        props: ['userId'],  //the properties being passed through from the view are accepted here as props
+
         mounted() {
             console.log('Component mounted.')
         },
 
         methods: {
             followUser() {
-                axios.post('/follow/1')
+                axios.post('/follow/' + this.userId)
                     .then(response => {
                         alert(response.data);
                     });
