@@ -9,12 +9,15 @@ use Intervention\Image\Facades\Image; //the image class
 class ProfilesController extends Controller
 {
 	//user was fetched manually, it can be done better with route model binding
-    public function index($user)
+    public function index(User $user)
     {
-    	//both lines for passing the user to the view
-    	$user = User::findOrFail($user);
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
-        return view('profiles.index', compact('user'));
+
+    	//both lines for passing the user to the view
+    	//$user = User::findOrFail($user);
+
+        return view('profiles.index', compact('user', 'follows'));
     }
 
     //the '\App\' below can be ommitted since we are importing the user class above with the use statement

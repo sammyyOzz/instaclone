@@ -9,6 +9,6 @@ class FollowsController extends Controller
 {
     public function store(User $user)  //store verb was chosen because we are basically storing a following
     {
-    	return $user->username;
+    	return auth()->user()->following()->toggle($user->profile);
     }
 }

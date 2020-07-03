@@ -14,7 +14,7 @@
                 <div class = "d-flex align-items-center pb-3">
                     <div class="h4">{{ $user->username }}</div>
                     
-                    <follow-button user-id = "{{ $user->id }}"></follow-button>  {{-- this links to the FollowButton.vue file, the 'follow-button' name is in the app.js file --}}
+                    <follow-button user-id = "{{ $user->id }}" follows="{{ $follows }}"></follow-button>  {{-- this links to the FollowButton.vue file, the 'follow-button' name is in the app.js file --}}
                     {{-- the user-id property is being passed to the follow button through here --}}
                 </div>
 
