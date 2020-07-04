@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Post;
 
 class PostsController extends Controller
 {
 	public function __construct()
 	{
 		$this->middleware('auth');
+	}
+
+	public function index()
+	{
+		$users = auth()->user()->following()->pluck('profiles.user_id'); //remember the user is following profiles and not users so the user_id of the profiles have to be plucked to get the auth user's followers
+
+		$posts = Post::whereIn('user_id', $users)->latest()->get();
+
+		return view('home', compact('posts'));
 	}
 
 	public function create()
