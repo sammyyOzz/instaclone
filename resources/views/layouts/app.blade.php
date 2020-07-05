@@ -40,11 +40,15 @@
                     
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <div>
-                            <a href="/home">
-                                <div><img src="/icons/instagram-home-icon-vector-clipart.png.jpeg" style="height:30px;"></div>
-                            </a>
-                        </div>
+                        @if(auth()->user())
+                            <div class="d-flex">
+                                <div class="pr-3 pt-1"><a href="/home">
+                                    <img src="/icons/instagram-home-icon-vector-clipart.png.jpeg" style="height:30px;"></a>
+                                </div>
+                                <div class="pr-2 pt-1"><a href="/profile/{{ auth()->user()->id }}"><img src="{{ auth()->user()->profile->profileImage() }}" class="rounded-circle w-100" style="max-width: 30px;"></a></div>
+                                
+                            </div>
+                        @endif
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -64,7 +68,7 @@
                                     <a class="dropdown-item" href="/userslist">
                                         Find Users
                                     </a>
-                                    
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
