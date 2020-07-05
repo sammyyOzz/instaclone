@@ -37,6 +37,11 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <div>
+                        <a href="/home">
+                            <div class="float-right"><img src="/icons/instagram-home-icon-vector-clipart.png.jpeg" style="height:30px;"></div>
+                        </a>
+                    </div>
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
