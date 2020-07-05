@@ -8,6 +8,13 @@ use Intervention\Image\Facades\Image; //the image class
 
 class ProfilesController extends Controller
 {
+    public function list()
+    {
+        $users = User::where('id', '!=', auth()->id())->get();
+
+        return view('profiles.list', compact('users'));
+    }
+
 	//user was fetched manually, it can be done better with route model binding
     public function index(User $user)
     {

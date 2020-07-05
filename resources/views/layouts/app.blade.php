@@ -37,13 +37,14 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <div>
-                        <a href="/home">
-                            <div class="float-right"><img src="/icons/instagram-home-icon-vector-clipart.png.jpeg" style="height:30px;"></div>
-                        </a>
-                    </div>
+                    
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <div>
+                            <a href="/home">
+                                <div><img src="/icons/instagram-home-icon-vector-clipart.png.jpeg" style="height:30px;"></div>
+                            </a>
+                        </div>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,6 +61,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/userslist">
+                                        Find Users
+                                    </a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
