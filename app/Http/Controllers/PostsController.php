@@ -41,6 +41,7 @@ class PostsController extends Controller
 
 		//I think this should be modified to integrate videos as well
 		$upload = Image::make(public_path("storage/{$uploadPath}"))->fit(1200, 1200);
+
 		$upload->save();
 
 		auth()->user()->posts()->create([

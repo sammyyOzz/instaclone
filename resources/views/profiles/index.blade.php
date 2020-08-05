@@ -36,11 +36,10 @@
                 <div class="pr-5"><strong>{{ $user->following->count() }}</strong> following</div>
             </div>
 
-            {{-- @if($user->profile) --}}
                 <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
                 <div>{{ $user->profile->description }}</div>
                 <div><a href="#">{{ $user->profile->url }}</a></div>
-           {{--  @endif --}}
+           
         </div>
     </div>
 
